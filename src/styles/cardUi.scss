@@ -1,37 +1,65 @@
 .card-img {
-    position: relative;
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  &::before {
+    padding-top: 56.25%;
     display: block;
-    width: 100%;
-    padding: 0;
-    overflow: hidden;
-    &::before {
-        padding-top: 56.25%;
-        display: block;
-        content: "";
-    }
+    content: "";
+  }
 }
 
-.main-card h2 {
-    color: #4a4a4a;
+.info-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  & > div {
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-grow: 0;
+    flex-shrink: 1;
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+.address-container, .chip-container {
+    min-width: 250px;
 }
 
 .card-img-inner {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .main-card {
+  & h2 {
+    color: #4a4a4a;
+  }
 }
 
 .card-container {
-  max-width: 750px;
+  max-width: 650px;
   margin-left: auto;
   margin-right: auto;
 }
 
-
+.chip-container > div {
+  margin: 5px;
+}

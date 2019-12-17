@@ -28,23 +28,39 @@ const CardUi = (props) => {
             title="nandos"
           />
         </div>
-        <div>
-        <h2>Address</h2>
-        <p>
-          12 Fried Chicken Avenue<br />
-          Hempdon Park<br />
-          Brighton<br />
-          JF9 8JN
-      </p>
-        <h2>Tags</h2>
-        <Chip label="Chicken" onClick={undefined} />
-        <Chip label="Trendy" onClick={undefined} />
-        <Chip label="Grilled" onClick={undefined} />
-        <Chip label="Portugese" onClick={undefined} />
-        <Chip label="Finger-licking" onClick={undefined} />
-      </div>
-        <h2>Price</h2>
-        <h2>Description</h2>
+        <div className="info-container">
+          <div className="card-row">
+
+            <div className="address-container">
+
+              <h2>Address</h2>
+              <p>
+                12 Fried Chicken Avenue<br />
+                Hempdon Park<br />
+                Brighton<br />
+                JF9 8JN
+            </p>
+            </div>
+            <div>
+              <h2>Tags</h2>
+              <div className="chip-container">
+                <Chip label="Chicken" className="chip" onClick={undefined} clickable={true} />
+                <Chip label="Trendy" className="chip" onClick={undefined} clickable={true} />
+                <Chip label="Grilled" className="chip" onClick={undefined} clickable={true} />
+                <Chip label="Portugese" className="chip" onClick={undefined} clickable={true} />
+                <Chip label="Finger-licking" className="chip" onClick={undefined} clickable={true} />
+              </div>
+            </div>
+          </div>
+          <div className="card-row">
+            <div>
+              <h2>Price</h2>
+            </div>
+            <div>
+              <h2>Description</h2>
+            </div>
+          </div>
+        </div>
       </Card>
     </div>
   );
