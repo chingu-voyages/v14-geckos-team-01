@@ -1,6 +1,17 @@
+@import '_vars.scss';
+
 .main-card {
+  box-shadow:
+    0px 2px 1px -1px rgba(112, 128, 138, 0.2),
+    0px 1px 1px 0px rgba(139, 159, 167, 0.14),
+    0px 1px 3px 0px rgba(17, 53, 228, 0.12);
   & h2 {
-    color: #4a4a4a;
+    color: $gray-70;
+  }
+  &:hover {
+    box-shadow:
+      0 14px 28px rgba(71, 105, 169, 0.25),
+      0 10px 10px rgba(140, 153, 162, 0.22);
   }
 }
 
@@ -21,8 +32,12 @@
 }
 
 .card-title {
-  padding-left: 30px;
-  padding-right: 30px;
+  display: flex;
+  & h1 {
+    display: inline-block;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
 
 .card-img {
@@ -51,8 +66,10 @@
 .short-info {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  flex-basis: 1;
+  flex-grow: 1;
   & div {
-    flex: 1 1 auto;
     margin: 0 10px;
   }
 }
@@ -60,6 +77,7 @@
 .card-row {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
   & > div {
     flex-grow: 1;
     flex-shrink: 1;
@@ -69,14 +87,21 @@
   }
 }
 
-.chip-container > div {
-  margin: 5px;
+.chip-container{
+  & > div {
+    margin: 5px;
+  }
 }
 
 .expand {
   transform: rotate(0deg);
-  margin-left: auto;
+  transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1)!important;
 }
 .expand-open {
   transform: rotate(180deg);
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
 }

@@ -1,16 +1,10 @@
 import React from 'react';
 import clsx from 'clsx';
-import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
-import Collapse from '@material-ui/core/Collapse';
 import '../styles/cardUi.scss'
 import img from '../img/nandos/butterflybreasts.jpg'
-import Chip from '@material-ui/core/Chip';
 import RoomIcon from '@material-ui/icons/RoomRounded';
-// import AttachMoneyIcon from '@material-ui/icons/AttachMoneyRounded';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMoreRounded';
-import CardContent from '@material-ui/core/CardContent';
-import { IconButton } from '@material-ui/core';
+import { IconButton, CardContent, Chip, CardMedia, Collapse, Card } from '@material-ui/core';
 
 
 const CardUi = (props) => {
@@ -31,18 +25,21 @@ const CardUi = (props) => {
             title="nandos"
           />
         </div>
-        <h1 className="card-title">
-          Nandos
+
+        <div className="card-title">
+          <h1>
+            Nandos
           </h1>
-        <div className="info-container">
           <div className="short-info">
             <RoomIcon />
             <span>
               0.3 miles, Brighton
             </span>
-            <Chip label="$$" className="card-cost" variant="outlined" />
+            <Chip label="$$" className="card-cost" color="secondary" size="medium" variant="outlined" />
           </div>
+        </div>
 
+        <div className="info-container">
           <div className="card-row">
             <div className="chip-container">
               <Chip label="Chicken" className="chip" onClick={undefined} clickable={true} />
@@ -52,10 +49,10 @@ const CardUi = (props) => {
               <Chip label="Finger-licking" className="chip" onClick={undefined} clickable={true} />
             </div>
           </div>
-          <div>
+          <div className="card-row mx-auto">
             <IconButton
               className={clsx('expand', {
-                'expand': expanded,
+                'expand-open': expanded,
               })}
               onClick={handleExpandClick}
               aria-expanded={expanded}
