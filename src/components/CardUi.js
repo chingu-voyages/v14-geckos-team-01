@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { IconButton, CardContent, Chip, CardMedia, Collapse, Card } from '@material-ui/core';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMoreRounded';
+import RoomIcon from '@material-ui/icons/RoomRounded';
 import clsx from 'clsx';
 import '../styles/cardUi.scss'
 import img from '../img/nandos/butterflybreasts.jpg'
-import RoomIcon from '@material-ui/icons/RoomRounded';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMoreRounded';
-import { IconButton, CardContent, Chip, CardMedia, Collapse, Card } from '@material-ui/core';
 
 
-const CardUi = (props) => {
+const CardUi = () => {
 
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -74,8 +74,5 @@ const CardUi = (props) => {
     </div>
   );
 }
-
-
-
 
 export default CardUi;
