@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { IconButton, CardContent, Chip, CardMedia, Collapse, Card } from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMoreRounded';
-import RoomIcon from '@material-ui/icons/RoomRounded';
+import {
+  StarRounded as StarRoundedIcon,
+  Room as RoomIcon,
+  ExpandMore as ExpandMoreIcon,
+  StarBorderRounded as StarBorderRoundedIcon
+} from '@material-ui/icons';
 import clsx from 'clsx';
-import '../styles/cardUi.scss'
-import img from '../img/nandos/butterflybreasts.jpg'
+import Rating from 'react-rating';
+import '../styles/cardUi.scss';
+import img from '../img/nandos/butterflybreasts.jpg';
 
 
 const CardUi = () => {
@@ -36,6 +41,12 @@ const CardUi = () => {
               0.3 miles, Brighton
             </span>
             <Chip label="$$" className="card-cost" color="secondary" size="medium" variant="outlined" />
+            <Rating
+              emptySymbol={<StarBorderRoundedIcon />}
+              fullSymbol={<StarRoundedIcon />}
+              initialRating={2.5}
+              readonly
+            />
           </div>
         </div>
 
