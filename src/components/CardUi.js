@@ -60,7 +60,7 @@ const CardUi = () => {
               <Chip label="Finger-licking" className="chip" onClick={undefined} clickable={true} />
             </div>
           </div>
-          <div className="card-row mx-auto">
+          <div className="card-row mx-auto justify-content-center">
             <IconButton
               className={clsx('expand', {
                 'expand-open': expanded,
