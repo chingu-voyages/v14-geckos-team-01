@@ -3,8 +3,7 @@ import '../styles/top-navbar.scss'
 
 
 
-const NavBar = (props) => {
-
+const NavBar = () => {
 
     return (
         <div className="navbar">
