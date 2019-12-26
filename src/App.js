@@ -1,12 +1,13 @@
 import React from 'react';
+import CardUi from '../src/components/CardUi'
+import NavBar from './components/navbar';
 import './styles/App.scss';
 
 function App() {
   return (
     <>
-    <p>
-      Hello World 👋
-    </p>
+    <NavBar />
+    <CardUi />
     </>
   );
 }

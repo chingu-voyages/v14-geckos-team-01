@@ -1,0 +1,111 @@
+@import '_vars.scss';
+
+.main-card {
+  box-shadow:
+    0px 2px 1px -1px rgba(112, 128, 138, 0.2),
+    0px 1px 1px 0px rgba(139, 159, 167, 0.14),
+    0px 1px 3px 0px rgba(17, 53, 228, 0.12);
+  & h2 {
+    color: $gray-70;
+  }
+  &:hover {
+    box-shadow:
+      0 14px 28px rgba(71, 105, 169, 0.25),
+      0 10px 10px rgba(140, 153, 162, 0.22);
+  }
+}
+
+.card-container {
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:30px;
+}
+
+.info-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 30px;
+  & h1 {
+    margin-top: 0px;
+  }
+}
+
+.card-title {
+  display: flex;
+  & h1 {
+    display: inline-block;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+.card-img {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  &::before {
+    padding-top: 56.25%;
+    display: block;
+    content: "";
+  }
+}
+
+.card-img-inner {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.short-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-basis: 1;
+  flex-grow: 1;
+  & div {
+    margin: 0 10px;
+  }
+}
+
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  & > div {
+    flex-grow: 1;
+    flex-shrink: 1;
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+  }
+}
+
+.chip-container{
+  & > div {
+    margin: 5px;
+  }
+}
+
+.expand {
+  transform: rotate(0deg);
+  transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1)!important;
+}
+.expand-open {
+  transform: rotate(180deg);
+}
+
+.mx-auto {
+  margin-left: auto!important;
+  margin-right: auto!important;
+}
+
+.justify-content-center {
+  justify-content: center!important;
+}
