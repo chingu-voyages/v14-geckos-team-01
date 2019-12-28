@@ -75,9 +75,9 @@ const CardUi = () => {
           </div>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
-              <h2>Description</h2>
+              <h2>The PERi-PERi Story</h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              South African flavour with a Portuguese twist. The folks down at Nando’s have been firing up meal time since their very first restaurant in 1987. It’s been a long road from humble beginnings, but Britain’s favourite PERi-PERi restaurant shows no sign of slowing down. With over 400 chicken joints in with UK, the journey for Nando’s is nowhere near completion.
         </p>
             </CardContent>
           </Collapse>
