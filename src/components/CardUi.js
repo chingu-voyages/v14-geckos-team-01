@@ -43,12 +43,24 @@ const CardUi = ({ list }) => {
             </h1>
             <div className="break" />
             <div className="short-info">
-                <RoomIcon />
-                <span>
-                  {list[cardIndex].location}
-                </span>
-              <Chip label={'$'.repeat(list[cardIndex].price)} className="card-cost" color="secondary" size="medium" variant="outlined" />
-              <Chip label={list[cardIndex].waitTime} className="wait-time" color="primary" size="medium" variant="outlined" />
+              <RoomIcon />
+              <span>
+                {list[cardIndex].location}
+              </span>
+              <Chip
+                label={'$'.repeat(list[cardIndex].price)}
+                className="card-cost"
+                color="secondary"
+                size="medium"
+                variant="outlined"
+              />
+              <Chip
+                label={list[cardIndex].waitTime}
+                className="wait-time"
+                color="primary"
+                size="medium"
+                variant="outlined"
+              />
               <Rating
                 emptySymbol={<StarBorderRoundedIcon />}
                 fullSymbol={<StarRoundedIcon />}
@@ -62,7 +74,12 @@ const CardUi = ({ list }) => {
             <div className="card-row">
               <div className="chip-container">
                 {list[cardIndex].tags.map(x => {
-                  return <Chip label={capFirstLetter(x)} key={'chip' + x} className="chip" onClick={undefined} clickable={true} />
+                  return <Chip label={capFirstLetter(x)}
+                    key={'chip' + x}
+                    className="chip"
+                    onClick={undefined}
+                    clickable={true}
+                  />
                 })}
               </div>
             </div>
@@ -81,7 +98,9 @@ const CardUi = ({ list }) => {
           </div>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
-              <h2>{capFirstLetter(list[cardIndex].titleDecription)}</h2>
+              <h2>
+                {capFirstLetter(list[cardIndex].titleDecription)}
+              </h2>
               <p>
                 {list[cardIndex].description}
               </p>
