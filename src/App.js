@@ -2,12 +2,32 @@ import React from 'react';
 import CardUi from './components/CardUi'
 import NavBar from './components/Navbar';
 import './styles/App.scss';
+import restaurants from './data/restaurants.json';
+
+function deepCopy (data) {
+  return JSON.parse(JSON.stringify(data))
+}
+
+function ShuffleArr (input) {
+
+  for (let i = input.length - 1; i >= 0; i--) {
+
+    let randomIndex = Math.floor(Math.random() * (i + 1));
+    let itemAtIndex = input[randomIndex];
+
+    input[randomIndex] = input[i];
+    input[i] = itemAtIndex;
+  }
+  return input;
+}
+
+let cardCycle = ShuffleArr(deepCopy(restaurants));
 
 function App() {
   return (
     <>
       <NavBar />
-      <CardUi />
+      <CardUi list={cardCycle} />
     </>
   );
 }

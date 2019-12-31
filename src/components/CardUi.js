@@ -10,9 +10,17 @@ import clsx from 'clsx';
 import Rating from 'react-rating';
 import '../styles/cardUi.scss';
 
-const CardUi = () => {
+function capFirstLetter(text) {
+  return text.toLowerCase()
+    .split(' ')
+    .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+    .join(' ');
+}
+
+const CardUi = ({ list }) => {
 
   const [expanded, setExpanded] = useState(false);
+  const [cardIndex, setCardIndex] = useState(0);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -24,27 +32,27 @@ const CardUi = () => {
         <div className="card-img">
           <CardMedia
             className="card-img-inner"
-            image={process.env.PUBLIC_URL + "/img/nandos/butterflybreasts.jpg"}
+            image={process.env.PUBLIC_URL + list[cardIndex].images[0]}
             title="nandos"
           />
         </div>
         <div className="card-body">
           <div className="card-title">
             <h1>
-              Nandos
-          </h1>
-          <div className="break" />
+              {capFirstLetter(list[cardIndex].name)}
+            </h1>
+            <div className="break" />
             <div className="short-info">
-              <RoomIcon />
-              <span>
-              The Waterfront
-            </span>
-              <Chip label="$$" className="card-cost" color="secondary" size="medium" variant="outlined" />
-              <Chip label="20-40 mins" className="wait-time" color="primary" size="medium" variant="outlined" />
+                <RoomIcon />
+                <span>
+                  {list[cardIndex].location}
+                </span>
+              <Chip label={'$'.repeat(list[cardIndex].price)} className="card-cost" color="secondary" size="medium" variant="outlined" />
+              <Chip label={list[cardIndex].waitTime} className="wait-time" color="primary" size="medium" variant="outlined" />
               <Rating
                 emptySymbol={<StarBorderRoundedIcon />}
                 fullSymbol={<StarRoundedIcon />}
-                initialRating={4}
+                initialRating={list[cardIndex].rating}
                 readonly
               />
             </div>
@@ -53,11 +61,9 @@ const CardUi = () => {
           <div className="info-container">
             <div className="card-row">
               <div className="chip-container">
-                <Chip label="Chicken" className="chip" onClick={undefined} clickable={true} />
-                <Chip label="Trendy" className="chip" onClick={undefined} clickable={true} />
-                <Chip label="Grilled" className="chip" onClick={undefined} clickable={true} />
-                <Chip label="Portugese" className="chip" onClick={undefined} clickable={true} />
-                <Chip label="Finger-licking" className="chip" onClick={undefined} clickable={true} />
+                {list[cardIndex].tags.map(x => {
+                  return <Chip label={capFirstLetter(x)} key={'chip' + x} className="chip" onClick={undefined} clickable={true} />
+                })}
               </div>
             </div>
             <div className="card-row mx-auto justify-content-center">
@@ -75,10 +81,10 @@ const CardUi = () => {
           </div>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
-              <h2>The PERi-PERi Story</h2>
+              <h2>{capFirstLetter(list[cardIndex].titleDecription)}</h2>
               <p>
-              South African flavour with a Portuguese twist. The folks down at Nando’s have been firing up meal time since their very first restaurant in 1987. It’s been a long road from humble beginnings, but Britain’s favourite PERi-PERi restaurant shows no sign of slowing down. With over 400 chicken joints in with UK, the journey for Nando’s is nowhere near completion.
-        </p>
+                {list[cardIndex].description}
+              </p>
             </CardContent>
           </Collapse>
         </div>
