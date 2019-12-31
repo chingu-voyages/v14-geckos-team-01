@@ -1,5 +1,6 @@
-{
-    "nandos": {
+[
+    {
+        "name": "nandos",
         "id": 0,
         "images": [
             "/img/nandos/butterflybreasts.jpg",
@@ -22,7 +23,8 @@
         ],
         "rating": 4.5
     },
-    "cosmos": {
+    {
+        "name": "cosmos",
         "id": 1,
         "images": [
             "/img/cosmos/Cosmo-8649.jpg",
@@ -42,7 +44,8 @@
         ],
         "rating": 4.5
     },
-    "dominos": {
+    {
+        "name": "dominos",
         "id": 2,
         "images": [
             "/img/dominos/17c847d05d318b7460fd2f3035f71a74.png",
@@ -64,7 +67,8 @@
         ],
         "rating": 4
     },
-    "burrito mama": {
+    {
+        "name": "burrito mama",
         "id": 3,
         "images": [
             "/img/burrito-mama/slider-burritomama1.jpg",
@@ -83,7 +87,8 @@
         ],
         "rating": 3.5
     },
-    "papa johns": {
+    {
+        "name": "papa johns",
         "id": 4,
         "images": [
             "/img/papa-johns/0_PAPA_JOHNS_MARMITE-SCROLLS3.jpg",
@@ -105,4 +110,4 @@
         ],
         "rating": 4
     }
-}
+]
