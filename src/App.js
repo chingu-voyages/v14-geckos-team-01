@@ -12,9 +12,8 @@ function App() {
   const handleClick = (e) => {
     const value = e.target.id;
     if (value === 'skip') {
-      setCardCycle(cardCycle.splice(1, cardCycle.length));
+      setCardCycle(cardCycle.slice(1, cardCycle.length));
     }
-    console.log(e.target.id);
   }
 
   return (
