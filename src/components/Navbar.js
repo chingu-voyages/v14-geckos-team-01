@@ -1,16 +1,10 @@
 import React from 'react';
-import '../styles/top-navbar.scss'
+import '../styles/top-navbar.scss';
 
 
-
-const NavBar = () => {
-
-    return (
-        <div className="navbar">
-
-        </div>
-    )
-}
+const NavBar = () => (
+  <div className="navbar" />
+);
 
 
 export default NavBar;

@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { IconButton, CardContent, Chip, CardMedia, Collapse, Card } from '@material-ui/core';
+import PropTypes from 'prop-types';
+import {
+  IconButton, CardContent, Chip, CardMedia, Collapse, Card,
+} from '@material-ui/core';
 import {
   StarRounded as StarRoundedIcon,
   Room as RoomIcon,
   ExpandMore as ExpandMoreIcon,
-  StarBorderRounded as StarBorderRoundedIcon
+  StarBorderRounded as StarBorderRoundedIcon,
 } from '@material-ui/icons';
 import clsx from 'clsx';
 import Rating from 'react-rating';
@@ -18,7 +21,6 @@ function capFirstLetter(text) {
 }
 
 const CardUi = ({ list }) => {
-
   const [expanded, setExpanded] = useState(false);
   const [cardIndex, setCardIndex] = useState(0);
 
@@ -73,14 +75,15 @@ const CardUi = ({ list }) => {
           <div className="info-container">
             <div className="card-row">
               <div className="chip-container">
-                {list[cardIndex].tags.map(x => {
-                  return <Chip label={capFirstLetter(x)}
-                    key={'chip' + x}
+                {list[cardIndex].tags.map((x) => (
+                  <Chip
+                    label={capFirstLetter(x)}
+                    key={`chip${x}`}
                     className="chip"
                     onClick={undefined}
-                    clickable={true}
+                    clickable
                   />
-                })}
+                ))}
               </div>
             </div>
             <div className="card-row mx-auto justify-content-center">
@@ -110,6 +113,10 @@ const CardUi = ({ list }) => {
       </Card>
     </div>
   );
-}
+};
+
+CardUi.propTypes = {
+  list: PropTypes.shape({}).isRequired,
+};
 
 export default CardUi;
