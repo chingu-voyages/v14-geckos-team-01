@@ -1,0 +1,91 @@
+
+.card-btn-group {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 1200px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+.cycle-btn-container {
+    max-height: 700px;
+}
+
+.inner-btn-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+  
+  @mixin cycle-buttons {
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    & > svg {
+        pointer-events: none;
+    }
+  }
+
+  .btn {
+    display: inline-block;
+    font-weight: 400;
+    outline: none;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    &-accept {
+        @include cycle-buttons;
+      color: #0ea90e;
+      border: #0ea90e solid 2px;
+      transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      transition-property: box-shadow;
+      transition-duration: 300ms;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-delay: 0ms;
+      &:hover {
+        color: white;
+        background-color: #0ea90e;
+        box-shadow:
+        -6px -4px 28px rgba(71, 105, 169, 0.25),
+        -5px -5px 10px rgba(140, 153, 162, 0.22);
+  
+      }
+    }
+    &-decline {
+        @include cycle-buttons;
+      color: #f50057;
+      border: #f50057 solid 2px;
+      transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      transition-property: box-shadow;
+      transition-duration: 300ms;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-delay: 0ms;
+      &:hover {
+        color: white;
+        background-color: #f50057;
+        box-shadow:
+        -6px -4px 28px rgba(71, 105, 169, 0.25),
+        -5px -5px 10px rgba(140, 153, 162, 0.22);
+  
+      }
+    }
+    &-circle {
+      border-radius: 50%;
+    }
+    &-lg {
+      font-size: 1.3rem!important;
+      font-weight: 700;
+    }
+  }
+  

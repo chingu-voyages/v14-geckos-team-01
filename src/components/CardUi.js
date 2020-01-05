@@ -11,9 +11,7 @@ import {
   StarRounded as StarRoundedIcon,
   Room as RoomIcon,
   ExpandMore as ExpandMoreIcon,
-  StarBorderRounded as StarBorderRoundedIcon,
-  ClearRounded as ClearAllIcon,
-  DoneOutlineRounded as DoneOutlineRoundedIcon
+  StarBorderRounded as StarBorderRoundedIcon
 } from '@material-ui/icons';
 import clsx from 'clsx';
 import Rating from 'react-rating';
@@ -29,7 +27,6 @@ function capFirstLetter(text) {
 const CardUi = ({ list }) => {
 
   const [expanded, setExpanded] = useState(false);
-  const [cardIndex, setCardIndex] = useState(0);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -41,26 +38,26 @@ const CardUi = ({ list }) => {
         <div className="card-img">
           <CardMedia
             className="card-img-inner"
-            image={process.env.PUBLIC_URL + list[cardIndex].images[0]}
+            image={process.env.PUBLIC_URL + list.images[0]}
             title="nandos"
           />
         </div>
         <div className="card-body">
           <div className="card-title">
             <h1>
-              {capFirstLetter(list[cardIndex].name)}
+              {capFirstLetter(list.name)}
             </h1>
             <div className="short-info">
               <RoomIcon />
               <span>
-                {list[cardIndex].location}
+                {list.location}
               </span>
-              <Chip label={'$'.repeat(list[cardIndex].price)} className="card-cost" color="secondary" size="medium" variant="outlined" />
-              <Chip label={list[cardIndex].waitTime} className="wait-time" color="primary" size="medium" variant="outlined" />
+              <Chip label={'$'.repeat(list.price)} className="card-cost" color="secondary" size="medium" variant="outlined" />
+              <Chip label={list.waitTime} className="wait-time" color="primary" size="medium" variant="outlined" />
               <Rating
                 emptySymbol={<StarBorderRoundedIcon />}
                 fullSymbol={<StarRoundedIcon />}
-                initialRating={list[cardIndex].rating}
+                initialRating={list.rating}
                 readonly
               />
             </div>
@@ -69,7 +66,7 @@ const CardUi = ({ list }) => {
           <div className="info-container">
             <div className="card-row">
               <div className="chip-container">
-                {list[cardIndex].tags.map(x => {
+                {list.tags.map(x => {
                   return <Chip label={capFirstLetter(x)} key={'chip' + x} className="chip" onClick={undefined} clickable={true} />
                 })}
               </div>
@@ -91,17 +88,12 @@ const CardUi = ({ list }) => {
         </div>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <h2>{capFirstLetter(list[cardIndex].titleDecription)}</h2>
+            <h2>{capFirstLetter(list.titleDecription)}</h2>
             <p>
-              {list[cardIndex].description}
+              {list.description}
             </p>
           </CardContent>
         </Collapse>
-
-        <div className="card-row card-button-group">
-          <button className="btn btn-decline btn-lg"><ClearAllIcon fontSize='large' /></button>
-          <button className="btn btn-accept btn-lg"><DoneOutlineRoundedIcon fontSize="large" /></button>
-        </div>
 
       </Card>
     </div>
