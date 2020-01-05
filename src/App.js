@@ -1,8 +1,8 @@
 import React from 'react';
-import CardUi from './components/CardUi';
-import NavBar from './components/Navbar';
-import './styles/App.scss';
-import restaurants from './data/restaurants.json';
+import restaurants from 'data/restaurants.json';
+import CardUi from 'components/CardUi';
+import NavBar from 'components/Navbar';
+import 'styles/App.scss';
 
 function deepCopy(data) {
   return JSON.parse(JSON.stringify(data));

@@ -11,7 +11,7 @@ import {
 } from '@material-ui/icons';
 import clsx from 'clsx';
 import Rating from 'react-rating';
-import '../styles/cardUi.scss';
+import 'styles/cardUi.scss';
 
 function capFirstLetter(text) {
   return text.toLowerCase()
