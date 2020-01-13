@@ -1,20 +1,25 @@
-import React, { useState } from 'react';
-import CardUi from './components/CardUi'
-import NavBar from './components/Navbar';
-import './styles/App.scss';
-import restaurants from './data/restaurants.json';
-import ButtonCycleWrapper from './components/ButtonCycleWrapper';
+import React from 'react';
+import restaurants from 'data/restaurants.json';
+import CardUi from 'components/CardUi';
+import NavBar from 'components/Navbar';
+import 'styles/App.scss';
 
-function App() {
+function deepCopy(data) {
+  return JSON.parse(JSON.stringify(data));
+}
 
-  let [cardCycle, setCardCycle] = useState(ShuffleArr(deepCopy(restaurants)));
+function ShuffleArr(input) {
+  for (let i = input.length - 1; i >= 0; i -= 1) {
+    const randomIndex = Math.floor(Math.random() * (i + 1));
+    const itemAtIndex = input[randomIndex];
 
-  const handleClick = (e) => {
-    const value = e.target.id;
-    if (value === 'skip') {
-      setCardCycle(cardCycle.slice(1, cardCycle.length));
-    }
+    input[randomIndex] = input[i];
+    input[i] = itemAtIndex;
   }
+  return input;
+}
+
+const cardCycle = ShuffleArr(deepCopy(restaurants));
 
   return (
     <>

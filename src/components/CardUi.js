@@ -1,21 +1,17 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import {
-  IconButton,
-  CardContent,
-  Chip,
-  CardMedia,
-  Collapse,
-  Card,
+  IconButton, CardContent, Chip, CardMedia, Collapse, Card,
 } from '@material-ui/core';
 import {
   StarRounded as StarRoundedIcon,
   Room as RoomIcon,
   ExpandMore as ExpandMoreIcon,
-  StarBorderRounded as StarBorderRoundedIcon
+  StarBorderRounded as StarBorderRoundedIcon,
 } from '@material-ui/icons';
 import clsx from 'clsx';
 import Rating from 'react-rating';
-import '../styles/cardUi.scss';
+import 'styles/cardUi.scss';
 
 function capFirstLetter(text) {
   return text.toLowerCase()
@@ -25,7 +21,6 @@ function capFirstLetter(text) {
 }
 
 const CardUi = ({ list }) => {
-
   const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
@@ -50,10 +45,29 @@ const CardUi = ({ list }) => {
             <div className="short-info">
               <RoomIcon />
               <span>
+<<<<<<< HEAD
                 {list.location}
               </span>
               <Chip label={'$'.repeat(list.price)} className="card-cost" color="secondary" size="medium" variant="outlined" />
               <Chip label={list.waitTime} className="wait-time" color="primary" size="medium" variant="outlined" />
+=======
+                {list[cardIndex].location}
+              </span>
+              <Chip
+                label={'$'.repeat(list[cardIndex].price)}
+                className="card-cost"
+                color="secondary"
+                size="medium"
+                variant="outlined"
+              />
+              <Chip
+                label={list[cardIndex].waitTime}
+                className="wait-time"
+                color="primary"
+                size="medium"
+                variant="outlined"
+              />
+>>>>>>> development
               <Rating
                 emptySymbol={<StarBorderRoundedIcon />}
                 fullSymbol={<StarRoundedIcon />}
@@ -66,12 +80,37 @@ const CardUi = ({ list }) => {
           <div className="info-container">
             <div className="card-row">
               <div className="chip-container">
+<<<<<<< HEAD
                 {list.tags.map(x => {
                   return <Chip label={capFirstLetter(x)} key={'chip' + x} className="chip" onClick={undefined} clickable={true} />
                 })}
+=======
+                {list[cardIndex].tags.map((x) => (
+                  <Chip
+                    label={capFirstLetter(x)}
+                    key={`chip${x}`}
+                    className="chip"
+                    onClick={undefined}
+                    clickable
+                  />
+                ))}
+>>>>>>> development
               </div>
             </div>
           </div>
+<<<<<<< HEAD
+=======
+          <Collapse in={expanded} timeout="auto" unmountOnExit>
+            <CardContent>
+              <h2>
+                {capFirstLetter(list[cardIndex].titleDecription)}
+              </h2>
+              <p>
+                {list[cardIndex].description}
+              </p>
+            </CardContent>
+          </Collapse>
+>>>>>>> development
         </div>
 
         <div className="card-row mx-auto justify-content-center">
@@ -98,6 +137,10 @@ const CardUi = ({ list }) => {
       </Card>
     </div>
   );
-}
+};
+
+CardUi.propTypes = {
+  list: PropTypes.shape({}).isRequired,
+};
 
 export default CardUi;
