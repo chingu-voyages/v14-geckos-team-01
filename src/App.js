@@ -1,33 +1,49 @@
-import React from 'react';
-import restaurants from 'data/restaurants.json';
+import React, { useState, useEffect } from 'react';
 import CardUi from 'components/CardUi';
 import NavBar from 'components/Navbar';
 import 'styles/App.scss';
+import { loadRestaurantData } from 'App.utils';
 
-function deepCopy(data) {
-  return JSON.parse(JSON.stringify(data));
-}
 
-function ShuffleArr(input) {
-  for (let i = input.length - 1; i >= 0; i -= 1) {
-    const randomIndex = Math.floor(Math.random() * (i + 1));
-    const itemAtIndex = input[randomIndex];
+const App = () => {
+  const [dataRequest, setDataRequest] = useState({
+    data: [],
+    isLoading: true,
+    error: null,
+  });
 
-    input[randomIndex] = input[i];
-    input[i] = itemAtIndex;
+  useEffect(() => {
+    loadRestaurantData({ setDataRequest });
+  }, []);
+
+  function deepCopy(data) {
+    return JSON.parse(JSON.stringify(data));
   }
-  return input;
-}
 
-const cardCycle = ShuffleArr(deepCopy(restaurants));
+  function ShuffleArr(input) {
+    for (let i = input.length - 1; i >= 0; i -= 1) {
+      const randomIndex = Math.floor(Math.random() * (i + 1));
+      const itemAtIndex = input[randomIndex];
 
-function App() {
+      input[randomIndex] = input[i];
+      input[i] = itemAtIndex;
+    }
+    return input;
+  }
+
+  const cardCycle = ShuffleArr(deepCopy(dataRequest.data));
+
   return (
     <>
-      <NavBar />
-      <CardUi list={cardCycle} />
+      {dataRequest.isLoading && <div>*Insert loading spinner here...*</div>}
+      {!dataRequest.isLoading && (
+        <>
+          <NavBar />
+          <CardUi list={cardCycle} />
+        </>
+      )}
     </>
   );
-}
+};
 
 export default App;
