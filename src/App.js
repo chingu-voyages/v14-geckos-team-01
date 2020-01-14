@@ -70,7 +70,7 @@ function App() {
 function handleClick(e) {
   // for item in menu
   let item = menu.filter(item => item.id == e.target.id);
-  alert(item.name);
+  alert(item.id == e.target.id);
   // return setBasketContents([e.target.id]);
   // How to display the contents of the basket - setBasketContents (i.e. add to the array)
 }
