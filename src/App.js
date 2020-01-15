@@ -56,10 +56,10 @@ function App() {
 
   return (
     <>
-      <button id="1" onClick={e => setBasketContents([e.target.id])}>spring roll</button>
-      <button id="2" onClick={handleClick}>pizza</button>
-      <button id="3" onClick={handleClick}>pasta</button>
-      <button id="4" onClick={handleClick}>chocolate cake</button>
+      <button id="1" onClick={e => setBasketContents(...basketContents, [handleClick(e)])}>spring roll</button>
+      <button id="2" onClick={e => setBasketContents([handleClick(e)])}>pizza</button>
+      <button id="3" onClick={e => setBasketContents([handleClick(e)])}>pasta</button>
+      <button id="4" onClick={e => setBasketContents([handleClick(e)])}>chocolate cake</button>
       <BasketOverview basketContents={basketContents} />
       <NavBar />
       <CardUi list={cardCycle} />
@@ -68,9 +68,17 @@ function App() {
 }
 
 function handleClick(e) {
-  // for item in menu
-  let item = menu.filter(item => item.id == e.target.id);
-  alert(item.id == e.target.id);
+  for (let i=0; i<menu.length; i++) {
+    if (parseInt(menu[i].id) == e.target.id) {
+      return menu[i].name;
+    } 
+  }
+   
+  
+
+  // alert(item.id); --> undefined
+  // alert(e.target.id); --> 4
+  
   // return setBasketContents([e.target.id]);
   // How to display the contents of the basket - setBasketContents (i.e. add to the array)
 }
