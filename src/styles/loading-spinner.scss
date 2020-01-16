@@ -1,0 +1,41 @@
+$speed: 0.75s;
+$size: 30px;
+$color: black;
+$thickness: 8px;
+
+@keyframes infinite-rotation {
+    0% {transform: rotate(0deg) ;}
+    100% {transform: rotate(360deg);}
+}
+
+@mixin spinner-props( $speed, $size, $color, $thickness ) {
+    -webkit-animation-duration: $speed;
+    -moz-animation-duration: $speed;
+    animation-duration: $speed;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: infinite-rotation;
+    -moz-animation-name: infinite-rotation;
+    animation-name: infinite-rotation;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    animation-timing-function: linear;
+    height: $size;
+    width: $size;
+    border: $thickness solid $color;
+    border-right-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.loading-spinner {
+    @include spinner-props($speed, $size , $color , $thickness);
+    position: absolute;
+    top: 50%;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    margin: -15px 0 -15px;
+}
+
