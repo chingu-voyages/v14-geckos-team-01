@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CardUi from 'components/CardUi';
 import NavBar from 'components/Navbar';
+import CardSwipe from 'containers/CardSwipe';
 import 'styles/App.scss';
 import 'styles/loading-spinner.scss';
 import { loadRestaurantData } from 'App.utils';
@@ -40,7 +41,9 @@ const App = () => {
       {!dataRequest.isLoading && (
         <>
           <NavBar />
-          <CardUi list={cardCycle} />
+          <CardSwipe>
+            <CardUi list={cardCycle} />
+          </CardSwipe>
         </>
       )}
     </>
