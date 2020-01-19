@@ -54,10 +54,13 @@ const cardCycle = ShuffleArr(deepCopy(restaurants));
 function App() {
   const [basketContents, setBasketContents] = useState([]);
 
+  function addToBasket(item) {
+    setBasketContents([...basketContents, item.name]);
+    }
+    
   return (
     <>
-      {menu.map(item => <button onClick={e => setBasketContents([addToBasket(e)])}>{item.name}</button>)}
-      
+      {menu.map((item) => <button onClick={() => addToBasket(item)}>{item.name}</button>)}
       <BasketOverview basketContents={basketContents} />
       <NavBar />
       <CardUi list={cardCycle} />
@@ -65,12 +68,7 @@ function App() {
   );
 }
 
-function addToBasket(e) {
-  for (let i=0; i<menu.length; i++) {
-    if (parseInt(menu[i].id) == e.target.id) {
-      return menu[i].name;
-    } 
-  }
+
    
   
 
@@ -79,7 +77,7 @@ function addToBasket(e) {
   
   // return setBasketContents([e.target.id]);
   // How to display the contents of the basket - setBasketContents (i.e. add to the array)
-}
+
 
 export default App;
 
