@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CardUi from 'components/CardUi';
 import NavBar from 'components/Navbar';
+import Menu from 'components/Menu';
 import 'styles/App.scss';
 import 'styles/loading-spinner.scss';
 import { loadRestaurantData } from 'App.utils';
@@ -41,6 +42,7 @@ const App = () => {
         <>
           <NavBar />
           <CardUi list={cardCycle} />
+          <Menu />
         </>
       )}
     </>

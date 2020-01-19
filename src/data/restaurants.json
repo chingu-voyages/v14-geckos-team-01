@@ -21,7 +21,35 @@
             "Portugese",
             "Spicy"
         ],
-        "rating": 4.5
+        "rating": 4.5,
+        "menu": [
+            [
+                {
+                  "id": 0,
+                  "name": "spring roll",
+                  "category": "appetizers",
+                  "price": 4
+                },
+                {
+                  "id": 1,
+                  "name": "pizza",
+                  "category": "main dishes",
+                  "price": 10
+                },
+                {
+                  "id": 2,
+                  "name": "pasta",
+                  "category": "main dishes",
+                  "price": 12
+                },
+                {
+                  "id": 3,
+                  "name": "chocolate cake",
+                  "category": "desserts",
+                  "price": 6
+                }
+              ]            
+        ]
     },
     {
         "name": "cosmos",
